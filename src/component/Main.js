@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Image from 'react-bootstrap/Image'
 
 
 export class Main extends Component {
@@ -68,12 +69,11 @@ export class Main extends Component {
                 {this.state.showInfo &&
                     <Container style={{ marginTop: "50px" }}>
 
-                        <Row xs={1} md={2} className="g-4">
+                        <Row >
                             {Array.from({ length: 1 }).map((_, idx) => (
                                 <Col>
                                     <Card>
-                                        <Card.Img variant="top" src={`https://maps.locationiq.com/v3/staticmap?key=pk.d36871f015649f915282f374cff76628&q&center=${this.state.cityInfo.lat},${this.state.cityInfo.lon}&zoom=15`} />
-                                        <Card.Body>
+                                    <Card.Body>
                                             <Card.Title>{this.state.cityInfo.display_name}</Card.Title>
                                             <Card.Text>
                                                 latitude : {this.state.cityInfo.lat}
@@ -82,6 +82,8 @@ export class Main extends Component {
                                                 longitude : {this.state.cityInfo.lon}
                                             </Card.Text>
                                         </Card.Body>
+                                        <Card.Img variant="top" src={`https://maps.locationiq.com/v3/staticmap?key=pk.7733cdd4499bcd98592de57639a159af&q&center=${this.state.cityInfo.lat},${this.state.cityInfo.lon}&zoom=13`} />
+  
                                     </Card>
                                 </Col>
                             ))}
