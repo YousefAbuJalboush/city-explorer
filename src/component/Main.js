@@ -7,7 +7,7 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Image from 'react-bootstrap/Image'
+import Alert from 'react-bootstrap/Alert'
 
 
 export class Main extends Component {
@@ -17,7 +17,9 @@ export class Main extends Component {
         this.state = {
             cityName: '',
             cityInfo: {},
-            showInfo: false
+            showInfo: false,
+            serError: false,
+            errorMessage: ''
         }
     };
 
@@ -31,13 +33,30 @@ export class Main extends Component {
 
     getCityInfo = async (e) => {
         e.preventDefault();
-        const axiosReq = await axios.get(`https://us1.locationiq.com/v1/search.php?key=pk.7733cdd4499bcd98592de57639a159af&city=${this.state.cityName}&format=json`);
 
-        console.log(axiosReq);
-        this.setState({
-            cityInfo: axiosReq.data[0],
-            showInfo: true
-        })
+
+        try {
+            const axiosReq = await axios.get(`https://us1.locationiq.com/v1/search.php?key=pk.7733cdd4499bcd98592de57639a159af&city=${this.state.cityName}&format=json`);
+            this.setState({
+                cityInfo: axiosReq.data[0],
+                showInfo: true,
+                serError: false,
+                errorMessage: ''
+            })
+        } catch (error) {
+            this.setState({
+                serError: true,
+                showInfo: false,
+                errorMessage: error
+            });
+        }
+
+        // const axiosReq = await axios.get(`https://us1.locationiq.com/v1/search.php?key=pk.7733cdd4499bcd98592de57639a159af&city=${this.state.cityName}&format=json`);
+
+        // this.setState({
+        //     cityInfo: axiosReq.data[0],
+        //     showInfo: true
+        // })
 
     }
 
@@ -66,6 +85,36 @@ export class Main extends Component {
                     </Form>
                 </Container>
 
+                {this.state.serError &&
+                    <Container style={{ marginTop: "50px" }}>
+
+                        <Row >
+                            <Alert variant="danger">
+                                <Alert.Heading>There is some error</Alert.Heading>
+                                <p>
+                                Perhaps the entry field is empty or you entered a city name that does not exist.
+                                </p>
+                            </Alert>
+
+
+                            {/* {Array.from({ length: 1 }).map((_, idx) => (
+                                <Col>
+                                    <Card>
+                                        <Card.Body>
+                                            <Card.Title>There is some error</Card.Title>
+                                            <Card.Text>
+                                                Perhaps the entry field is empty or you entered a city name that does not exist.
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </Col>
+                            ))} */}
+                        </Row>
+
+
+                    </Container>
+                }
+
                 {this.state.showInfo &&
                     <Container style={{ marginTop: "50px" }}>
 
@@ -73,7 +122,7 @@ export class Main extends Component {
                             {Array.from({ length: 1 }).map((_, idx) => (
                                 <Col>
                                     <Card>
-                                    <Card.Body>
+                                        <Card.Body>
                                             <Card.Title>{this.state.cityInfo.display_name}</Card.Title>
                                             <Card.Text>
                                                 latitude : {this.state.cityInfo.lat}
@@ -83,11 +132,12 @@ export class Main extends Component {
                                             </Card.Text>
                                         </Card.Body>
                                         <Card.Img variant="top" src={`https://maps.locationiq.com/v3/staticmap?key=pk.7733cdd4499bcd98592de57639a159af&q&center=${this.state.cityInfo.lat},${this.state.cityInfo.lon}&zoom=13`} />
-  
+
                                     </Card>
                                 </Col>
                             ))}
                         </Row>
+
 
                     </Container>
                 }
