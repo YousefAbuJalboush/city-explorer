@@ -31,11 +31,24 @@
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
 
+* At 2:30 the work was started and the repo was created, react , axios and bootstrap were added to the repo.
+* At 3:00 my locationiq was handled. We fetch and display the data. Properties have been added from bootstrap.
+* At 3:30 the image was displayed and dealt with.
+* At 4:30 a try, catch was added to show any errors.
+
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+[Error handling](https://ar.reactjs.org/blog/2017/07/26/error-handling-in-react-16.html)
 
-# Pair programming
+# Class06 - Asynchronous code, and APIs
+
+* Name of feature: Asynchronous code, and APIs
+* Estimate of time needed to complete: 120min
+* Start time: 2:00pm
+* Finish time: 5:00
+* Actual time needed to complete: 180min
+
+## Pair programming
 
 * Driver : Yousef Abu-Jalboush
 * Navigator : Yazan Ahmad
-
