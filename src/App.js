@@ -19,7 +19,8 @@ export class App extends Component {
       cityInfo: {},
       showInfo: false,
       serError: false,
-      errorMessage: ''
+      errorMessage: '',
+      weatherData: '',
     }
   };
 
@@ -37,11 +38,15 @@ export class App extends Component {
 
     try {
       const axiosReq = await axios.get(`https://us1.locationiq.com/v1/search.php?key=pk.7733cdd4499bcd98592de57639a159af&city=${this.state.cityName}&format=json`);
+
+      const resWeather = await axios.get(`${process.env.REACT_APP_URL}/weather`);
+
       this.setState({
         cityInfo: axiosReq.data[0],
         showInfo: true,
         serError: false,
-        errorMessage: ''
+        errorMessage: '',
+        weatherData: resWeather.data.data
       })
     } catch (error) {
       this.setState({
@@ -69,6 +74,7 @@ export class App extends Component {
           this.state.showInfo &&
           <Map
             cityInfo={this.state.cityInfo}
+            weatherData={this.state.weatherData}
           />
         }
 
