@@ -39,14 +39,14 @@ export class App extends Component {
     try {
       const axiosReq = await axios.get(`https://us1.locationiq.com/v1/search.php?key=pk.7733cdd4499bcd98592de57639a159af&city=${this.state.cityName}&format=json`);
 
-      const resWeather = await axios.get(`${process.env.REACT_APP_URL}/weather`);
+      const resWea = await axios.get(`${process.env.REACT_APP_URL}/weather`);
 
       this.setState({
         cityInfo: axiosReq.data[0],
         showInfo: true,
         serError: false,
         errorMessage: '',
-        weatherData: resWeather.data.data
+        weatherData: resWea.data.data
       })
     } catch (error) {
       this.setState({
