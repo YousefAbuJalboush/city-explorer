@@ -51,13 +51,6 @@ export class Main extends Component {
             });
         }
 
-        // const axiosReq = await axios.get(`https://us1.locationiq.com/v1/search.php?key=pk.7733cdd4499bcd98592de57639a159af&city=${this.state.cityName}&format=json`);
-
-        // this.setState({
-        //     cityInfo: axiosReq.data[0],
-        //     showInfo: true
-        // })
-
     }
 
 
@@ -95,20 +88,6 @@ export class Main extends Component {
                                 Perhaps the entry field is empty or you entered a city name that does not exist.
                                 </p>
                             </Alert>
-
-
-                            {/* {Array.from({ length: 1 }).map((_, idx) => (
-                                <Col>
-                                    <Card>
-                                        <Card.Body>
-                                            <Card.Title>There is some error</Card.Title>
-                                            <Card.Text>
-                                                Perhaps the entry field is empty or you entered a city name that does not exist.
-                                            </Card.Text>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-                            ))} */}
                         </Row>
 
 
