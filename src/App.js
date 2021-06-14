@@ -11,6 +11,7 @@ export class App extends Component {
       <div>
 
         <Header />
+        
         <Main />
         
       </div>
