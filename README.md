@@ -80,6 +80,19 @@
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+* At 5:00 Fix Class-07.
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+
+# Time Estimates - Custom Servers with Node and Express
+
+* Name of feature:Custom Servers with Node and Express
+
+* Estimate of time needed to complete: 120min
+
+* Start time: 2:00pm
+
+* Finish time: 5:00pm
+
+* Actual time needed to complete: 180min
