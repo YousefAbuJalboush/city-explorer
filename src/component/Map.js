@@ -32,13 +32,16 @@ export class Map extends Component {
                 </Row>
                 <Row>
                     <Alert variant="success" style={{ marginTop: "50px" }}>
-                        <Alert.Heading>Description</Alert.Heading>
+                        <Alert.Heading>Description & Date</Alert.Heading>
                         {
                             this.props.weatherData.map(value => {
                                 return (
                                     <p>
-                                        {value.weather.description}
+                                        {value.descriptionWeather}
+                                        <br/>
+                                        {value.dateWeather}
                                     </p>
+                                    
                                 )
                             })
                         }

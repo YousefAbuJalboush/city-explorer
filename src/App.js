@@ -6,6 +6,7 @@ import Header from './component/Header';
 import Main from './component/Main';
 import AlertMessage from './component/AlertMessage';
 import Map from './component/Map';
+import Weather from './component/Map';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -46,7 +47,7 @@ export class App extends Component {
         showInfo: true,
         serError: false,
         errorMessage: '',
-        weatherData: resWeather.data.data
+        weatherData: resWeather.data
       })
     } catch (error) {
       this.setState({
@@ -71,11 +72,16 @@ export class App extends Component {
         />
 
         {
-          this.state.showInfo &&
-          <Map
-            cityInfo={this.state.cityInfo}
-            weatherData={this.state.weatherData}
-          />
+          (this.state.showInfo) &&
+          <>
+            <Map
+              cityInfo={this.state.cityInfo}
+              weatherData={this.state.weatherData}
+            />
+            {/* <Weather
+              weatherData={this.state.weatherData}
+            /> */}
+          </>
         }
 
         {
