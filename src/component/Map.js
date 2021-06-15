@@ -5,7 +5,6 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Alert from 'react-bootstrap/Alert'
 
 export class Map extends Component {
     render() {
@@ -29,23 +28,6 @@ export class Map extends Component {
                             </Card>
                         </Col>
                     ))}
-                </Row>
-                <Row>
-                    <Alert variant="success" style={{ marginTop: "50px" }}>
-                        <Alert.Heading>Description & Date</Alert.Heading>
-                        {
-                            this.props.weatherData.map(value => {
-                                return (
-                                    <p>
-                                        {value.descriptionWeather}
-                                        <br/>
-                                        {value.dateWeather}
-                                    </p>
-                                    
-                                )
-                            })
-                        }
-                    </Alert>
                 </Row>
             </Container>
         )

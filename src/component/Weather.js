@@ -7,7 +7,7 @@ import Alert from 'react-bootstrap/Alert'
 export class Weather extends Component {
     render() {
         return (
-            <Container>
+            <Container className="Weather">
                 <Row>
                     <Alert variant="success" style={{ marginTop: "50px" }}>
                         <Alert.Heading>Description & Date</Alert.Heading>
