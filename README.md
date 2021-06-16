@@ -96,3 +96,15 @@
 * Finish time: 5:00pm
 
 * Actual time needed to complete: 180min
+
+# Lab: Class 09 - Refactoring into Modules
+
+Name of feature: Refactoring into Modules
+
+Estimate of time needed to complete: 60min
+
+Start time: 3:15pm
+
+Finish time: 5:00pm
+
+Actual time needed to complete: 105min
