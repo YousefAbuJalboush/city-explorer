@@ -7,7 +7,7 @@ import Main from './component/Main';
 import AlertMessage from './component/AlertMessage';
 import Map from './component/Map';
 import Weather from './component/Weather';
-
+import Movies from './component/Movies';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -24,6 +24,7 @@ export class App extends Component {
       serError: false,
       errorMessage: '',
       weatherData: '',
+      moviesData: ''
     }
   };
 
@@ -38,9 +39,7 @@ export class App extends Component {
   getCityInfo = async (e) => {
     e.preventDefault();
 
-
     try {
-
       await axios.get(`https://us1.locationiq.com/v1/search.php?key=pk.7733cdd4499bcd98592de57639a159af&city=${this.state.cityName}&format=json`).then(axiosReq => {
 
         this.setState({
@@ -48,17 +47,26 @@ export class App extends Component {
           lat: axiosReq.data[0].lat,
           lon: axiosReq.data[0].lon,
         })
-      })
-
-      axios.get(`${process.env.REACT_APP_URL}/weather?lat=${this.state.lat}&lon=${this.state.lon}`).then(resWeather => {
+      }
+      )
+      await axios.get(`${process.env.REACT_APP_URL}/movies?cityName=${this.state.cityName}`).then(resTheMovieDB => {
         this.setState({
+          moviesData: resTheMovieDB.data,
+        }
+        )
+      }
+      )
+      await axios.get(`${process.env.REACT_APP_URL}/weather?lat=${this.state.lat}&lon=${this.state.lon}`).then(resWeather => {
+        this.setState({
+          weatherData: resWeather.data,
           showInfo: true,
           serError: false,
           errorMessage: '',
-          weatherData: resWeather.data
-        })
-      })
-
+        }
+        )
+      }
+      )
+      console.log(typeof this.state.moviesData);
     } catch (error) {
       this.setState({
         serError: true,
@@ -86,10 +94,12 @@ export class App extends Component {
           <>
             <Map
               cityInfo={this.state.cityInfo}
-            // weatherData={this.state.weatherData}
             />
             <Weather
-              weatherData={this.state.weatherData}
+               weatherData={this.state.weatherData}
+             />
+            <Movies
+              moviesData={this.state.moviesData}
             />
           </>
         }
