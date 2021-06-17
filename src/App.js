@@ -66,7 +66,6 @@ export class App extends Component {
         )
       }
       )
-      console.log(typeof this.state.moviesData);
     } catch (err) {
       this.setState({
         serError: true,
@@ -98,7 +97,6 @@ export class App extends Component {
             />
             <Weather
               weatherData={this.state.weatherData}
-              cityInfo={this.state.cityInfo}
             />
             <Movies
               moviesData={this.state.moviesData}
