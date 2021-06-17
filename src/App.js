@@ -67,12 +67,13 @@ export class App extends Component {
       }
       )
       console.log(typeof this.state.moviesData);
-    } catch (error) {
+    } catch (err) {
       this.setState({
         serError: true,
         showInfo: false,
-        errorMessage: error
+        errorMessage: `${err}`
       });
+      // console.log(this.state.errorMessage);
     }
 
   }
@@ -96,8 +97,9 @@ export class App extends Component {
               cityInfo={this.state.cityInfo}
             />
             <Weather
-               weatherData={this.state.weatherData}
-             />
+              weatherData={this.state.weatherData}
+              cityInfo={this.state.cityInfo}
+            />
             <Movies
               moviesData={this.state.moviesData}
             />
@@ -106,7 +108,9 @@ export class App extends Component {
 
         {
           this.state.serError &&
-          <AlertMessage />
+          <AlertMessage
+            errorMessage={this.state.errorMessage}
+          />
         }
       </>
     )
