@@ -10,10 +10,11 @@ export class Map extends Component {
     render() {
         return (
             <Container style={{ marginTop: "50px" }}>
+                 <h2 style={{ marginTop: "50px" }} >Location : </h2>
                 <Row>
                     {Array.from({ length: 1 }).map((_, idx) => (
                         <Col>
-                            <Card>
+                            <Card style={{ marginTop: "50px" }}>
                                 <Card.Body>
                                     <Card.Title>{this.props.cityInfo.display_name}</Card.Title>
                                     <Card.Text>

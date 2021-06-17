@@ -13,6 +13,9 @@ export class AlertMessage extends Component {
                         <p>
                             Perhaps the entry field is empty or you entered a city name that does not exist.
                         </p>
+                        <p>
+                            {this.props.errorMessage}
+                        </p>
                     </Alert>
                 </Row>
             </Container>
