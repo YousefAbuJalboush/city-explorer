@@ -99,12 +99,24 @@
 
 # Lab: Class 09 - Refactoring into Modules
 
-Name of feature: Refactoring into Modules
+* Name of feature: Refactoring into Modules
 
-Estimate of time needed to complete: 60min
+* Estimate of time needed to complete: 60min
 
-Start time: 3:15pm
+* Start time: 3:15pm
 
-Finish time: 5:00pm
+* Finish time: 5:00pm
 
-Actual time needed to complete: 105min
+* Actual time needed to complete: 105min
+
+# Lab: Class 10 - Advanced Topics
+
+Name of feature: Advanced Topics
+
+Estimate of time needed to complete: 30min
+
+Start time: 3:30pm
+
+Finish time: 4:10pm
+
+Actual time needed to complete: 40min
